@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blue, Apple - Dev Profile V2.13</title>
+  <title>Dev Profile</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -31,23 +31,29 @@
 
     /* Floating Pixel Animation */
     .floating-pixel {
-      position: fixed;
-      width: 16px;
-      height: 16px;
-      image-rendering: pixelated;
-      animation: bounceFloat 2s ease-in-out infinite;
-      opacity: 0.6;
-      box-shadow: 0 0 5px;
-      z-index: 0;
-    }
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  image-rendering: pixelated;
+  animation: bounceFloat 2s ease-in-out infinite;
+  opacity: 0.6;
+  box-shadow: 0 0 5px;
+  z-index: 0;
+  pointer-events: none;
+  /* Ensure the pixels stay within the visible area */
+  top: calc(5% + 16px); /* Adjust so that pixels don't go outside */
+  left: calc(5% + 16px); /* Adjust similarly for the left edge */
+  max-width: calc(100vw - 16px);
+  max-height: calc(100vh - 16px);
+}
 
-    @keyframes bounceFloat {
-      0%   { transform: translate(0, 0); }
-      25%  { transform: translate(-15px, -15px); }
-      50%  { transform: translate(0, -30px); }
-      75%  { transform: translate(15px, -15px); }
-      100% { transform: translate(0, 0); }
-    }
+@keyframes bounceFloat {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-15px, -15px); }
+  50%  { transform: translate(0, -30px); }
+  75%  { transform: translate(15px, -15px); }
+  100% { transform: translate(0, 0); }
+}
 
     /* Profile Section */
     .container {
